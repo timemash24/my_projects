@@ -1,8 +1,9 @@
 import Nav from '../components/Nav';
+import styles from '../css/AboutMe.module.css';
 
 function AboutMe() {
   return (
-    <div style={{ backgroundColor: 'lightgreen' }}>
+    <div className={styles.info}>
       <Nav />
       <h1>TIMEMASH</h1>
       <ul>

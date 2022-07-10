@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
+import styles from '../css/Home.module.css';
 
 function Home() {
   return (
-    <div style={{ backgroundColor: 'gray' }}>
-      <h1>HOME</h1>
-      <ul>
+    <div className={styles.home}>
+      <h1 className={styles.title}>HOME</h1>
+      <ul className={styles.menu}>
         <li>
           <Link to="/portfolio">PORTFOLIO</Link>
         </li>

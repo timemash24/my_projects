@@ -3,7 +3,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import AboutMe from '../routes/AboutMe';
 import Home from '../routes/Home';
 import Portfolio from '../routes/Portfolio';
-import './Transition.css';
+import '../css/Transition.css';
 
 function Transition() {
   const routes = [
@@ -19,7 +19,7 @@ function Transition() {
   const location = useLocation();
 
   return (
-    <TransitionGroup className="transition-group">
+    <TransitionGroup>
       <CSSTransition
         key={location.pathname}
         classNames="page-slider"

@@ -1,9 +1,10 @@
 import Nav from '../components/Nav';
 import MyProject from '../components/MyProject';
+import styles from '../css/Portfolio.module.css';
 
 function Portfolio() {
   return (
-    <div style={{ backgroundColor: 'lightblue' }}>
+    <div className={styles.my_projects}>
       <Nav />
       <main>
         <h1>PORTFOLIO</h1>

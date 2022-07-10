@@ -1,0 +1,10 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  background-color: #8879b0;
+  width: 100%;
+  height: 100vh;
+}
+
+.title {
+}
