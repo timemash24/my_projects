@@ -1,22 +1,24 @@
-import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Switch,
+} from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import AboutMe from './routes/AboutMe';
+import Home from './routes/Home';
+import Portfolio from './routes/Portfolio';
+import './App.css';
 
 function App() {
   return (
-    <div>
-      <ul>
-        <li>
-          <a href="https://timemash24.github.io/momentumJS/">momentumJs</a>
-        </li>
-        <li>
-          <a href="https://timemash24.github.io/paintJS/">paintJS</a>
-        </li>
-        <li>
-          <a href="https://timemash24.github.io/movie_app_react/">
-            movie_app_react
-          </a>
-        </li>
-      </ul>
-    </div>
+    <Router basename={process.env.PUBLIC_URL}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/about_me" element={<AboutMe />}></Route>
+      </Routes>
+    </Router>
   );
 }
 
