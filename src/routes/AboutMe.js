@@ -2,7 +2,7 @@ import Nav from '../components/Nav';
 
 function AboutMe() {
   return (
-    <div>
+    <div style={{ backgroundColor: 'lightgreen' }}>
       <Nav />
       <h1>TIMEMASH</h1>
       <ul>

@@ -3,7 +3,7 @@ import MyProject from '../components/MyProject';
 
 function Portfolio() {
   return (
-    <div>
+    <div style={{ backgroundColor: 'lightblue' }}>
       <Nav />
       <main>
         <h1>PORTFOLIO</h1>

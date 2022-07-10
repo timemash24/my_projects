@@ -1,45 +1,38 @@
-// // import { ConnectedRouter } from 'connected-react-router';
-// import { TransitionGroup, CSSTransition } from 'react-transition-group';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Switch,
-//   useLocation,
-// } from 'react-router-dom';
-// import Home from '../routes/Home';
-// import Portfolio from '../routes/Portfolio';
-// import AboutMe from '../routes/AboutMe';
-// import './Transition.css';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import AboutMe from '../routes/AboutMe';
+import Home from '../routes/Home';
+import Portfolio from '../routes/Portfolio';
+import './Transition.css';
 
-// function Transition() {
-//   const home = <Home />;
-//   const portfolio = <Portfolio />;
-//   const aboutMe = <AboutMe />;
+function Transition() {
+  const routes = [
+    { path: '/', name: 'home', order: 1 },
+    { path: '/portfolio', name: 'portfolio', order: 2 },
+    { path: '/about_me', name: 'about_me', order: 3 },
+  ];
 
-//   const location = useLocation();
+  const home = <Home />;
+  const portfolio = <Portfolio />;
+  const aboutMe = <AboutMe />;
 
-//   return (
-//     <Router>
-//       <Route
-//         render={({ location }) => (
-//           <TransitionGroup>
-//             <CSSTransition key={location.key} classNames="slide" timeout={500}>
-//               <Switch location={location}>
-//                 <Route exact path="/" children={home}></Route>
+  const location = useLocation();
 
-//                 {/* <Routes>
-//                   <Route exact path="/" component={Home}></Route>
-//                   <Route path="/portfolio" component={Portfolio}></Route>
-//                   <Route path="/about_me" component={AboutMe}></Route>
-//                 </Routes> */}
-//               </Switch>
-//             </CSSTransition>
-//           </TransitionGroup>
-//         )}
-//       />
-//     </Router>
-//   );
-// }
+  return (
+    <TransitionGroup className="transition-group">
+      <CSSTransition
+        key={location.pathname}
+        classNames="page-slider"
+        timeout={{ enter: 800, exit: 400 }}
+      >
+        <Routes>
+          <Route exact path="/" element={home} />
+          <Route path="/portfolio" element={portfolio} />
+          <Route path="/about_me" element={aboutMe} />
+        </Routes>
+      </CSSTransition>
+    </TransitionGroup>
+  );
+}
 
-// export default Transition;
+export default Transition;
