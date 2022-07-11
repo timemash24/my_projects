@@ -1,15 +1,15 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Nav from '../components/Nav';
 import styles from '../css/AboutMe.module.css';
 
 function AboutMe() {
   const transition = {
-    duration: 0.5,
+    duration: 0.7,
     ease: [0.43, 0.13, 0.23, 0.96],
   };
 
   const imageVariants = {
-    exit: { y: '10%', opacity: 0, transition },
+    exit: { y: '20%', opacity: 0, transition },
     enter: {
       y: '0%',
       opacity: 1,
@@ -31,8 +31,10 @@ function AboutMe() {
       exit={{ opacity: 0.5 }}
     >
       <Nav />
+
       <motion.h1
         key="about_me_title"
+        className={styles.title}
         variants={textVariants}
         initial="exit"
         animate="enter"
@@ -42,6 +44,7 @@ function AboutMe() {
       </motion.h1>
       <motion.ul
         key="about_me_info"
+        className={styles.details}
         variants={imageVariants}
         initial="exit"
         animate="enter"

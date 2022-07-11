@@ -2,10 +2,23 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   background-color: var(--purple-color);
   width: 100%;
   height: 100vh;
 }
 
 .title {
+  text-align: center;
+  margin: 1.5em 0;
+  font-size: 3em;
+}
+
+.details {
+  font-size: 2em;
+  padding: 0 2.5em;
+}
+
+.details li {
+  margin-top: 0.7em;
 }

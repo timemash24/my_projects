@@ -1,11 +1,11 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import Nav from '../components/Nav';
+import { motion } from 'framer-motion';
 import MyProject from '../components/MyProject';
+import Nav from '../components/Nav';
 import styles from '../css/Portfolio.module.css';
 
 function Portfolio() {
   const transition = {
-    duration: 0.5,
+    duration: 0.7,
     ease: [0.43, 0.13, 0.23, 0.96],
   };
 
