@@ -1,4 +1,5 @@
 .my_projects {
+  position: absolute;
   display: flex;
   flex-direction: column;
   background-color: #fbc5c5;
