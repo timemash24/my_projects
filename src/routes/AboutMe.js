@@ -8,7 +8,7 @@ function AboutMe() {
     ease: [0.43, 0.13, 0.23, 0.96],
   };
 
-  const imageVariants = {
+  const textVariants = {
     exit: { y: '20%', opacity: 0, transition },
     enter: {
       y: '0%',
@@ -17,51 +17,70 @@ function AboutMe() {
     },
   };
 
-  const textVariants = {
-    exit: { x: 100, opacity: 0, transition },
-    enter: { x: 0, opacity: 1, transition: { delay: 0.3, ...transition } },
+  const glassesVariants = {
+    exit: { x: 100, opacity: 0, scale: 0.25, transition },
+    enter: {
+      x: 0,
+      opacity: 1,
+      scale: 0.25,
+      transition: { delay: 0.3, ...transition },
+    },
   };
 
   return (
     <motion.div
-      key="about_me"
-      className={styles.info}
+      key="about"
+      className={styles.about}
       initial={{ opacity: 0.5 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0.5 }}
     >
       <Nav />
-
-      <motion.h1
-        key="about_me_title"
-        className={styles.title}
-        variants={textVariants}
+      <img
+        className={styles.about_chain}
+        src={require('../img/img_chain2.png')}
+        alt="about_chain"
+      />
+      <img
+        className={styles.about_profile}
+        src={require('../img/img_profile.png')}
+        alt="profile"
+      />
+      <motion.img
+        className={styles.about_sunglasses}
+        src={require('../img/img_sunglasses.png')}
+        alt="sunglasses"
+        variants={glassesVariants}
         initial="exit"
         animate="enter"
         exit="exit"
-      >
+      />
+      <h1 key="about_title" className={styles.about_title}>
         TIMEMASH
-      </motion.h1>
+      </h1>
       <motion.ul
-        key="about_me_info"
-        className={styles.details}
-        variants={imageVariants}
+        key="about_info"
+        className={styles.about_details}
+        variants={textVariants}
         initial="exit"
         animate="enter"
         exit="exit"
       >
         <li>
           <p>SKILLS</p>
-          <span># JAVASCRIPT</span>
-          <span># HTML</span>
-          <span># CSS</span>
-          <span># REACT</span>
+          <div className={styles.about_skills}>
+            <span># JAVASCRIPT</span>
+            <span># HTML</span>
+            <span># CSS</span>
+            <span># REACT</span>
+          </div>
+        </li>
+        <li>
+          <p>CONTACT</p>
+          <span className={styles.about_email}>timemash24@gmail.com</span>
         </li>
         <li>
           <a href="https://github.com/timemash24">MY GITHUB</a>
-        </li>
-        <li>
-          <p>CONTACT</p>timemash24@gmail.com
         </li>
       </motion.ul>
     </motion.div>

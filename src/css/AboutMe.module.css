@@ -1,28 +1,77 @@
-.info {
+.about {
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   background-color: var(--purple-color);
   width: 100%;
   height: 100vh;
+  user-select: none;
+  color: azure;
+  text-shadow: 2px 2px 4px gray;
 }
 
-.title {
+.about_chain {
+  position: absolute;
+  left: 0;
+  top: 20em;
+  width: 100%;
+  /* height: 100%; */
+}
+
+.about_title {
   text-align: center;
   margin: 1.5em 0;
   font-size: 3em;
 }
 
-.details {
+.about_details {
   font-size: 2em;
-  padding: 0 2.5em;
+  padding: 2.5em;
 }
 
-.details li {
+.about_details li {
   margin-top: 0.7em;
 }
 
-.details li p {
+.about_details p {
   color: var(--pink-color);
+}
+
+.about_details a {
+  color: var(--pink-color);
+  box-shadow: inset 0 0 0 0 var(--pink-color);
+  transition: color 400ms ease-in-out, box-shadow 400ms ease-in-out;
+}
+.about_details a:hover {
+  color: var(--purple-color);
+  box-shadow: inset 10em 0 0 0 var(--pink-color);
+}
+
+.about_details span {
+  padding-right: 0.5em;
+}
+
+.about_skills {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about_profile {
+  position: absolute;
+  top: 15em;
+  left: 80em;
+  transform: scale(0.8);
+}
+
+.about_sunglasses {
+  position: absolute;
+  top: 12em;
+  left: 67em;
+  transform: scale(0.25);
+}
+
+.about_email {
+  /* copy 가능하게 만들기 */
 }

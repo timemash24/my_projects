@@ -44,13 +44,12 @@
 }
 
 .home_menu {
-  position: relative;
   min-width: 40rem;
   margin: 1em;
   align-self: center;
   font-size: 6rem;
   font-weight: bold;
-  z-index: 1;
+  user-select: none;
 }
 
 .home_menu li {
