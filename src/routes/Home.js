@@ -20,6 +20,7 @@ function Home() {
   const textVariants = {
     exit: { x: 100, opacity: 0, transition },
     enter: { x: 0, opacity: 1, transition: { delay: 0.3, ...transition } },
+    hover: { scale: 1.1, transition },
   };
 
   return (
@@ -30,28 +31,30 @@ function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0.5 }}
     >
+      <img
+        className={styles.background_img}
+        src={require('../img/img_chain.png')}
+        alt="home"
+      />
       <section className={styles.home}>
-        <h1 className={styles.title}>HOME</h1>
-        <ul className={styles.menu}>
-          <motion.li
-            key="home_portfolio"
-            variants={textVariants}
-            initial="exit"
-            animate="enter"
-            exit="exit"
-          >
+        <div className={styles.home_view}>
+          <h1 className={styles.home_title}>HOME</h1>
+        </div>
+        <motion.ul
+          className={styles.home_menu}
+          key="home_menu"
+          variants={textVariants}
+          initial="exit"
+          animate="enter"
+          exit="exit"
+        >
+          <motion.li variants={textVariants} whileHover="hover">
             <Link to="/portfolio">PORTFOLIO</Link>
           </motion.li>
-          <motion.li
-            key="home_about_me"
-            variants={textVariants}
-            initial="exit"
-            animate="enter"
-            exit="exit"
-          >
+          <motion.li variants={textVariants} whileHover="hover">
             <Link to="/about_me">ABOUT ME</Link>
           </motion.li>
-        </ul>
+        </motion.ul>
       </section>
     </motion.div>
   );
