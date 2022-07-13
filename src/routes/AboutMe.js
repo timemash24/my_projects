@@ -1,8 +1,20 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import Nav from '../components/Nav';
 import styles from '../css/AboutMe.module.css';
 
 function AboutMe() {
+  const email = 'timemash24@gmail.com';
+  const [toastMsg, setToastMsg] = useState(email);
+
+  const onClick = () => {
+    navigator.clipboard.writeText(email);
+    setToastMsg('copied!');
+    setTimeout(() => {
+      setToastMsg(email);
+    }, 1800);
+  };
+
   const transition = {
     duration: 0.7,
     ease: [0.43, 0.13, 0.23, 0.96],
@@ -77,7 +89,9 @@ function AboutMe() {
         </li>
         <li>
           <p>CONTACT</p>
-          <span className={styles.about_email}>timemash24@gmail.com</span>
+          <span onClick={onClick} className={styles.about_email}>
+            {toastMsg}
+          </span>
         </li>
         <li>
           <a href="https://github.com/timemash24">MY GITHUB</a>

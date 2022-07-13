@@ -6,12 +6,6 @@ import Home from '../routes/Home';
 import Portfolio from '../routes/Portfolio';
 
 function Transition() {
-  const routes = [
-    { path: '/', name: 'home', order: 1 },
-    { path: '/portfolio', name: 'portfolio', order: 2 },
-    { path: '/about_me', name: 'about_me', order: 3 },
-  ];
-
   let location = useLocation();
 
   return (
