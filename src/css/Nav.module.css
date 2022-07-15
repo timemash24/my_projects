@@ -1,2 +1,50 @@
 .navbar {
+  position: absolute;
+  right: 0;
+  top: 3rem;
+  width: 12.3rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: var(--pink-color);
+}
+
+.navbar button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: solid 3px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 4.3rem;
+  margin-right: 1em;
+  width: 100%;
+  font-size: 1.2em;
+  color: var(--pink-color);
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  color: var(--green-color);
+  font-weight: bold;
+}
+.navbar ul {
+  width: 100%;
+  margin: 6rem 2rem 0;
+  padding: 0;
+  text-align: center;
+}
+
+.navbar li {
+  padding: 0 0.5em 0.7em;
+  cursor: pointer;
+}
+
+.navbar li:hover {
+  color: var(--green-color);
+  font-size: bold;
 }
