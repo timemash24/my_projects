@@ -11,7 +11,7 @@
   padding: 4rem 6rem 4rem;
   width: 100%;
   border-bottom: double 17px var(--green-color);
-  height: 46em;
+  height: 79%;
 }
 .portfolio_main h1 {
   user-select: none;
@@ -22,9 +22,9 @@
   top: 17rem;
   display: flex;
   height: 30rem;
-  width: 113rem;
+  width: 122rem;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
