@@ -6,7 +6,7 @@ function MyProject({ img, link, title, tags, desc, order }) {
   const transition = {
     duration: 0.7,
     ease: [0.43, 0.13, 0.23, 0.96],
-    delay: 0.25 * order,
+    delay: 0.2 * (order + 1),
   };
 
   const imageVariants = {

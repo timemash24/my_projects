@@ -34,15 +34,6 @@ function Portfolio() {
     ease: [0.43, 0.13, 0.23, 0.96],
   };
 
-  const imageVariants = {
-    exit: { y: '10%', opacity: 0, transition },
-    enter: {
-      y: '0%',
-      opacity: 1,
-      transition,
-    },
-  };
-
   const textVariants = {
     exit: { x: -100, opacity: 0, transition },
     enter: { x: 0, opacity: 1, transition: { delay: 0.3, ...transition } },
