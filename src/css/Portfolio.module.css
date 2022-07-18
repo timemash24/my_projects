@@ -8,28 +8,25 @@
 }
 
 .portfolio_main {
-  padding-bottom: 8rem;
   width: 100%;
-  border-bottom: double 17px var(--green-color);
   height: 79%;
+  padding-bottom: 8rem;
+  border-bottom: double 17px var(--green-color);
 }
 .portfolio_main h1 {
   user-select: none;
   padding: 4rem 6rem 4rem;
 }
-.projects_scroll {
-}
+
 .portfolio_main .projects {
   position: absolute;
   top: 17rem;
   display: flex;
   height: 33rem;
   width: 100%;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   overflow-x: auto;
-  /* padding: 2rem; */
 }
 
 .project {
@@ -37,8 +34,12 @@
   width: 30em;
   height: 30em;
   flex-direction: column;
-  margin: 0.5rem;
+  margin-left: 7.2rem;
   border: solid 1.5px;
+}
+
+.project:last-child {
+  margin-right: 7.2rem;
 }
 
 .project img {
@@ -81,7 +82,6 @@
   }
 
   .portfolio_main .projects {
-    width: 100%;
     height: 23em;
     top: 25%;
     overflow-x: auto;
@@ -101,7 +101,9 @@
     height: 20em;
     margin: 0.2em;
   }
-
+  .project:last-child {
+    margin-right: 0;
+  }
   .project img {
     width: 20em;
   }
@@ -116,10 +118,6 @@
 
 /* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
 @media all and (max-width: 767px) {
-  .portfolio {
-    /* justify-content: center; */
-  }
-
   .portfolio_main {
     padding: 0;
   }
@@ -134,7 +132,6 @@
   }
 
   .portfolio_main .projects {
-    width: 100%;
     height: 20em;
     top: 34%;
     overflow-x: auto;
@@ -145,7 +142,9 @@
     height: 17em;
     margin: 0.2em;
   }
-
+  .project:last-child {
+    margin-right: 0;
+  }
   .project img {
     width: 15em;
   }
