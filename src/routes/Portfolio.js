@@ -57,21 +57,23 @@ function Portfolio() {
         >
           MY TOY PROJECTS
         </motion.h1>
-        <motion.div className={styles.projects}>
-          {projects.map((project, i) => {
-            return (
-              <MyProject
-                key={i}
-                img={project.img}
-                link={project.link}
-                title={project.title}
-                tags={project.tags}
-                desc={project.desc}
-                order={i}
-              />
-            );
-          })}
-        </motion.div>
+        <div className={styles.projects_scroll}>
+          <motion.div className={styles.projects}>
+            {projects.map((project, i) => {
+              return (
+                <MyProject
+                  key={i}
+                  img={project.img}
+                  link={project.link}
+                  title={project.title}
+                  tags={project.tags}
+                  desc={project.desc}
+                  order={i}
+                />
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   );

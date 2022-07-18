@@ -8,24 +8,28 @@
 }
 
 .portfolio_main {
-  padding: 4rem 6rem 4rem;
+  padding-bottom: 8rem;
   width: 100%;
   border-bottom: double 17px var(--green-color);
   height: 79%;
 }
 .portfolio_main h1 {
   user-select: none;
+  padding: 4rem 6rem 4rem;
 }
-
+.projects_scroll {
+}
 .portfolio_main .projects {
   position: absolute;
-  top: 20rem;
+  top: 17rem;
   display: flex;
-  height: 30rem;
-  width: 122rem;
+  height: 33rem;
+  width: 100%;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
+  overflow-x: auto;
+  /* padding: 2rem; */
 }
 
 .project {
@@ -33,6 +37,7 @@
   width: 30em;
   height: 30em;
   flex-direction: column;
+  margin: 0.5rem;
   border: solid 1.5px;
 }
 
@@ -54,6 +59,7 @@
 }
 .project_info ul {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   user-select: none;
 }
@@ -66,4 +72,88 @@
   margin-top: 2em;
   font-size: 1em;
   user-select: none;
+}
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .portfolio_main {
+    padding: 0;
+  }
+
+  .portfolio_main .projects {
+    width: 100%;
+    height: 23em;
+    top: 25%;
+    overflow-x: auto;
+  }
+
+  .portfolio_main h1 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 14%;
+    font-size: 1.5em;
+    padding: 0;
+  }
+
+  .project {
+    width: 20em;
+    height: 20em;
+    margin: 0.2em;
+  }
+
+  .project img {
+    width: 20em;
+  }
+
+  .project_info h3 {
+    font-size: 1.3em;
+  }
+  .project_info p {
+    display: none;
+  }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width: 767px) {
+  .portfolio {
+    /* justify-content: center; */
+  }
+
+  .portfolio_main {
+    padding: 0;
+  }
+
+  .portfolio_main h1 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 30%;
+    font-size: 1.5em;
+    padding: 0;
+  }
+
+  .portfolio_main .projects {
+    width: 100%;
+    height: 20em;
+    top: 34%;
+    overflow-x: auto;
+  }
+
+  .project {
+    width: 15em;
+    height: 17em;
+    margin: 0.2em;
+  }
+
+  .project img {
+    width: 15em;
+  }
+
+  .project_info h3 {
+    font-size: 1em;
+  }
+  .project_info p {
+    display: none;
+  }
 }
