@@ -19,7 +19,7 @@
 
 .portfolio_main .projects {
   position: absolute;
-  top: 17rem;
+  top: 20rem;
   display: flex;
   height: 30rem;
   width: 122rem;
@@ -31,6 +31,7 @@
 .project {
   display: flex;
   width: 30em;
+  height: 30em;
   flex-direction: column;
   border: solid 1.5px;
 }

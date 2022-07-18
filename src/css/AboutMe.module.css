@@ -17,7 +17,6 @@
   left: 0;
   top: 20em;
   width: 100%;
-  /* height: 100%; */
 }
 
 .about_title {
@@ -76,4 +75,57 @@
 }
 .about_email:hover {
   cursor: pointer;
+}
+
+/* 테블릿 가로, 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .about {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .about_title {
+    margin: 1.5em 2em 2em;
+    font-size: 2.5rem;
+  }
+
+  .about_details {
+    font-size: 1.7em;
+    padding: 0 2.5em 3em;
+  }
+
+  .about_profile {
+    transform: scale(0.6);
+    left: 25em;
+    top: 19em;
+  }
+
+  .about_sunglasses {
+    left: 11.5em;
+    top: 17em;
+  }
+}
+
+/* 모바일 가로, 모바일 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width: 767px) {
+  .about_title {
+    font-size: 2.2em;
+    margin: 7em 0 1em;
+  }
+
+  .about_details {
+    font-size: 1.5em;
+    padding: 0 2.5em 3em;
+  }
+
+  .about_profile {
+    transform: scale(0.6);
+    left: 9em;
+    top: 25.5em;
+  }
+
+  .about_sunglasses {
+    left: -5.5em;
+    top: 23em;
+  }
 }
