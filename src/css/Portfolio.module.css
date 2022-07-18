@@ -1,5 +1,5 @@
 .portfolio {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   background-color: var(--beige-color);
