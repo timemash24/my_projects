@@ -7,7 +7,7 @@ function Portfolio() {
   const root = 'https://timemash24.github.io/';
   const projects = [
     {
-      img: require('../img/img_momentum.png'),
+      img: require('../img/img_momentum.jpg'),
       link: `${root}momentumJS/`,
       title: 'Personal Dashboard App',
       tags: ['javascript', 'html', 'css'],
