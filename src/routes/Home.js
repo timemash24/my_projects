@@ -8,15 +8,6 @@ function Home() {
     ease: [0.43, 0.13, 0.23, 0.96],
   };
 
-  const imageVariants = {
-    exit: { y: '10%', opacity: 0, transition },
-    enter: {
-      y: '0%',
-      opacity: 1,
-      transition,
-    },
-  };
-
   const textVariants = {
     exit: { x: 100, opacity: 0, transition },
     enter: { x: 0, opacity: 1, transition: { delay: 0.3, ...transition } },
@@ -37,7 +28,7 @@ function Home() {
         alt="home"
       />
       <section className={styles.home}>
-        <div className={styles.home_view}>
+        <div>
           <h1 className={styles.home_title}>HOME</h1>
         </div>
         <motion.ul

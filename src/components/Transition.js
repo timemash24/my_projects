@@ -1,6 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import '../css/Transition.css';
 import AboutMe from '../routes/AboutMe';
 import Home from '../routes/Home';
 import Portfolio from '../routes/Portfolio';

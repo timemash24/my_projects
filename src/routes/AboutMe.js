@@ -29,7 +29,7 @@ function AboutMe() {
     },
   };
 
-  const glassesVariants = {
+  const imgVariants = {
     exit: { x: 100, opacity: 0, scale: 0.25, transition },
     enter: {
       x: 0,
@@ -62,7 +62,7 @@ function AboutMe() {
         className={styles.about_sunglasses}
         src={require('../img/img_sunglasses.png')}
         alt="sunglasses"
-        variants={glassesVariants}
+        variants={imgVariants}
         initial="exit"
         animate="enter"
         exit="exit"

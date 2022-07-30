@@ -27,6 +27,16 @@
   justify-content: flex-start;
   align-items: center;
   overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.projects::-webkit-scrollbar {
+  height: 0.5em;
+}
+
+.projects::-webkit-scrollbar-thumb {
+  background-color: var(--pink-color);
+  border-radius: 5px;
 }
 
 .project {
@@ -53,6 +63,7 @@
 .project_info {
   padding: 3em 1.2em 1.2em;
   background-color: var(--beige-color);
+  height: 100%;
 }
 .project_info h3 {
   font-size: 2em;
@@ -84,7 +95,6 @@
   .portfolio_main .projects {
     height: 23em;
     top: 25%;
-    overflow-x: auto;
   }
 
   .portfolio_main h1 {
@@ -134,7 +144,6 @@
   .portfolio_main .projects {
     height: 20em;
     top: 34%;
-    overflow-x: auto;
   }
 
   .project {

@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from '../css/Nav.module.css';
 
-let currentPath = '';
-
 function Nav() {
   let location = useLocation();
 
@@ -18,6 +16,7 @@ function Nav() {
     duration: 0.7,
     ease: [0.43, 0.13, 0.23, 0.96],
   };
+
   const variants = {
     exit: { y: '-10%', opacity: 0, transition },
     enter: {
