@@ -2,11 +2,11 @@ import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import styles from '../css/Portfolio.module.css';
 
-function MyProject({ img, link, title, tags, desc, order }) {
+function MyProject({ img, link, title, tags, desc }) {
   const transition = {
     duration: 0.7,
     ease: [0.43, 0.13, 0.23, 0.96],
-    delay: 0.2 * (order + 1),
+    delay: 0.1,
   };
 
   const imageVariants = {
@@ -24,8 +24,8 @@ function MyProject({ img, link, title, tags, desc, order }) {
       className={styles.project}
       variants={imageVariants}
       initial="exit"
-      animate="enter"
       exit="exit"
+      whileInView="enter"
     >
       <a href={link}>
         <img src={img} alt={title} />

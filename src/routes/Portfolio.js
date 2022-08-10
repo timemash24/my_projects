@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import MyProject from '../components/MyProject';
 import Nav from '../components/Nav';
@@ -29,14 +30,44 @@ function Portfolio() {
     },
   ];
 
-  const transition = {
-    duration: 0.7,
-    ease: [0.43, 0.13, 0.23, 0.96],
+  const scrollRef = useRef();
+  const [deltaY, setDeltaY] = useState(0);
+  const [curTop, setCurTop] = useState(0);
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+    window.addEventListener('wheel', yWheelEvent);
+    return () => {
+      window.removeEventListener('wheel', yWheelEvent);
+    };
+  }, []);
+
+  const onScroll = (e) => {
+    const scrollHeight = e.target.scrollHeight; // 전체 스크롤 높이
+    const scrollTop = e.target.scrollTop; // 현재 스크롤 위치
+
+    // 위로 스크롤
+    if (deltaY > 0) {
+      if (curTop < scrollHeight / 3) {
+        e.target.childNodes[1].scrollIntoView({ block: 'center' });
+      } else if (curTop < (scrollHeight / 3) * 2) {
+        e.target.childNodes[2].scrollIntoView();
+      }
+    }
+    // 아래로 스크롤
+    else {
+      if (curTop >= scrollHeight / 3) {
+        e.target.childNodes[1].scrollIntoView();
+      } else if (curTop < scrollHeight / 3 - 150) {
+        e.target.childNodes[0].scrollIntoView({ block: 'center' });
+      }
+    }
+    setCurTop(scrollTop);
   };
 
-  const textVariants = {
-    exit: { x: -100, opacity: 0, transition },
-    enter: { x: 0, opacity: 1, transition: { delay: 0.3, ...transition } },
+  // 스크롤 방향 확인
+  const yWheelEvent = (e) => {
+    setDeltaY(e.deltaY);
   };
 
   return (
@@ -48,18 +79,10 @@ function Portfolio() {
       exit={{ opacity: 0.5 }}
     >
       <Nav />
-      <div className={styles.portfolio_main}>
-        <motion.h1
-          variants={textVariants}
-          initial="exit"
-          animate="enter"
-          exit="exit"
-        >
-          MY TOY PROJECTS
-        </motion.h1>
-        <motion.div className={styles.projects}>
-          {projects.map((project, i) => {
-            return (
+      <div className={styles.projects} onScroll={onScroll} ref={scrollRef}>
+        {projects.map((project, i) => {
+          return (
+            <div key={`wheel${i}`}>
               <MyProject
                 key={i}
                 img={project.img}
@@ -67,11 +90,10 @@ function Portfolio() {
                 title={project.title}
                 tags={project.tags}
                 desc={project.desc}
-                order={i}
               />
-            );
-          })}
-        </motion.div>
+            </div>
+          );
+        })}
       </div>
     </motion.div>
   );
