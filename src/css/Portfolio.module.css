@@ -5,6 +5,12 @@
   background-color: var(--beige-color);
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.portfolio::-webkit-scrollbar {
+  display: none;
 }
 
 .projects_index {
@@ -44,10 +50,10 @@
   display: none;
 }
 
-/* .projects_wheel {
+.projects_wheel {
   height: 100%;
-  margin: 4rem;
-} */
+  padding: 10% 8% 5%;
+}
 
 .project {
   display: flex;
@@ -62,6 +68,7 @@
 
 .project img {
   width: 80%;
+  border-radius: 10px;
 }
 .project img:hover {
   transform: scale(1.05);
