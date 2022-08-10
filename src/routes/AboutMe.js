@@ -94,7 +94,9 @@ function AboutMe() {
           </span>
         </li>
         <li>
-          <a href="https://github.com/timemash24">MY GITHUB</a>
+          <a href="https://github.com/timemash24" target="_blank">
+            MY GITHUB
+          </a>
         </li>
       </motion.ul>
     </motion.div>

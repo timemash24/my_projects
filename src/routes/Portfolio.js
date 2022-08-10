@@ -13,6 +13,7 @@ function Portfolio() {
       img: require('../img/img_momentum.jpg'),
       link: `${root}momentumJS/`,
       title: 'Personal Dashboard App',
+      github: 'https://github.com/timemash24/momentumJS',
       tags: ['javascript', 'html', 'css'],
       desc: 'Featuring inspiring photo, quote, weather and to-do list',
     },
@@ -20,6 +21,7 @@ function Portfolio() {
       img: require('../img/img_paint.png'),
       link: `${root}paintJS/`,
       title: 'Paint App',
+      github: 'https://github.com/timemash24/paintJS',
       tags: ['javascript', 'html', 'css'],
       desc: 'Draw, paint, save',
     },
@@ -27,6 +29,7 @@ function Portfolio() {
       img: require('../img/img_movie.png'),
       link: `${root}movie_app_react/`,
       title: 'Movie App',
+      github: 'https://github.com/timemash24/movie_app_react',
       tags: ['react', 'javascript', 'html', 'css'],
       desc: 'Introduce movies and sort by genres',
     },
@@ -66,7 +69,7 @@ function Portfolio() {
     }
     // 위로 스크롤
     else {
-      if (curTop > scrollHeight / 3) {
+      if (curTop >= scrollHeight / 3) {
         e.target.childNodes[1].scrollIntoView();
         setCurIndex(1);
       } else if (curTop <= scrollHeight / 4) {
@@ -90,12 +93,13 @@ function Portfolio() {
       <div className={styles.projects} onScroll={onScroll} ref={scrollRef}>
         {projects.map((project, i) => {
           return (
-            <div key={`wheel${i}`}>
+            <div className={styles.projects_wheel} key={`wheel${i}`}>
               <MyProject
                 key={i}
                 img={project.img}
                 link={project.link}
                 title={project.title}
+                github={project.github}
                 tags={project.tags}
                 desc={project.desc}
               />

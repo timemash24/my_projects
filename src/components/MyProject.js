@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import styles from '../css/Portfolio.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-function MyProject({ img, link, title, tags, desc }) {
+function MyProject({ img, link, title, github, tags, desc }) {
   const transition = {
     duration: 0.7,
     ease: [0.43, 0.13, 0.23, 0.96],
@@ -26,12 +28,18 @@ function MyProject({ img, link, title, tags, desc }) {
       initial="exit"
       exit="exit"
       whileInView="enter"
+      viewport={{ amount: 0.8 }}
     >
       <a href={link}>
         <img src={img} alt={title} />
       </a>
       <div className={styles.project_info}>
-        <h3>{title}</h3>
+        <div className={styles.project_title}>
+          <h3>{title}</h3>
+          <a href={github} target="_blank">
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+        </div>
         <ul>
           {tags.map((tag) => {
             return <li key={tag}># {tag}</li>;
