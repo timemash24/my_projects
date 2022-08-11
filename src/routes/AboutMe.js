@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Nav from '../components/Nav';
 import styles from '../css/AboutMe.module.css';
+const chainImg = require('../img/img_chain2.png');
+const profileImg = require('../img/img_profile.png');
+const sunglassImg = require('../img/img_sunglasses.png');
 
 function AboutMe() {
   const email = 'timemash24@gmail.com';
@@ -48,24 +51,24 @@ function AboutMe() {
       exit={{ opacity: 0.5 }}
     >
       <Nav />
-      <img
-        className={styles.about_chain}
-        src={require('../img/img_chain2.png')}
-        alt="about_chain"
-      />
-      <img
+      <img className={styles.about_chain} src={chainImg} alt="about_chain" />
+      <motion.img
         className={styles.about_profile}
-        src={require('../img/img_profile.png')}
+        src={profileImg}
         alt="profile"
+        initial={{ opacity: 0.5 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0.5 }}
       />
       <motion.img
         className={styles.about_sunglasses}
-        src={require('../img/img_sunglasses.png')}
+        src={sunglassImg}
         alt="sunglasses"
         variants={imgVariants}
         initial="exit"
         animate="enter"
         exit="exit"
+        whileHover={{ y: '-10%' }}
       />
       <h1 key="about_title" className={styles.about_title}>
         TIMEMASH

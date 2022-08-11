@@ -5,6 +5,7 @@ import Nav from '../components/Nav';
 import styles from '../css/Portfolio.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClover } from '@fortawesome/free-solid-svg-icons';
+const chainImg = require('../img/img_chain3.png');
 
 function Portfolio() {
   const root = 'https://timemash24.github.io/';
@@ -35,80 +36,48 @@ function Portfolio() {
     },
   ];
 
-  const tmp = useRef();
-  const refs = Array.from({ length: projects.length }).map(() => createRef());
   const scrollRef = useRef();
-  // const [deltaY, setDeltaY] = useState(0);
-  const [curTop, setCurTop] = useState(0);
+  const projectRefs = Array.from({ length: projects.length }).map(() =>
+    createRef()
+  );
   const [curIndex, setCurIndex] = useState(0);
 
-  // 스크롤 방향 확인
-  const yWheelEvent = (e) => {
-    // setDeltaY(e.deltaY);
-  };
-
   useEffect(() => {
-    console.log(tmp.current);
-    const test = (e) => {
+    // if (!scrollRef.current || !projectRefs) return;
+
+    const onWheel = async (e) => {
       e.preventDefault();
-      const { deltaY } = e;
-      const { scrollTop } = tmp.current; // 스크롤 위쪽 끝
+      const { deltaY } = e; // 스크롤 방향 확인
+      const { scrollTop } = scrollRef.current; // 스크롤 위쪽 끝
       const pageHeight = window.innerHeight; // 화면 세로 길이
 
       // 아래로 스크롤
       if (deltaY > 0) {
-        if (scrollTop < pageHeight) {
-          refs[1].current.scrollIntoView({ block: 'center' });
+        if (scrollTop >= 0 && scrollTop < pageHeight) {
+          projectRefs[1].current?.scrollIntoView();
           setCurIndex(1);
         } else {
-          refs[2].current.scrollIntoView({ block: 'center' });
+          projectRefs[2].current?.scrollIntoView();
           setCurIndex(2);
         }
       }
       // 위로 스크롤
       else {
         if (scrollTop < pageHeight * 2) {
-          refs[0].current.scrollIntoView({ block: 'center' });
+          projectRefs[0].current?.scrollIntoView();
           setCurIndex(0);
         } else {
-          refs[1].current.scrollIntoView({ block: 'center' });
+          projectRefs[1].current?.scrollIntoView();
           setCurIndex(1);
         }
       }
     };
 
-    tmp.current.addEventListener('wheel', test);
+    scrollRef.current?.addEventListener('wheel', onWheel);
     return () => {
-      tmp.current.removeEventListener('wheel', test);
+      scrollRef.current?.removeEventListener('wheel', onWheel);
     };
-  }, [refs]);
-
-  // const onScroll = (e) => {
-  //   const scrollHeight = e.target.scrollHeight; // 전체 스크롤 높이
-  //   const scrollTop = e.target.scrollTop; // 현재 스크롤 위치
-
-  //   // 아래로 스크롤
-  //   if (deltaY > 0) {
-  //     if (curTop < scrollHeight / 3) {
-  //       e.target.childNodes[1].scrollIntoView({ block: 'center' });
-  //       setCurIndex(1);
-  //     } else {
-  //       e.target.childNodes[2].scrollIntoView();
-  //       setCurIndex(2);
-  //     }
-  //   }
-  //   // 위로 스크롤
-  //   else {
-  //     if (curTop >= scrollHeight / 3) {
-  //       e.target.childNodes[1].scrollIntoView();
-  //       setCurIndex(1);
-  //     } else if (curTop <= scrollHeight / 4) {
-  //       e.target.childNodes[0].scrollIntoView({ block: 'center' });
-  //       setCurIndex(0);
-  //     }
-  //   }
-  //   setCurTop(scrollTop);
-  // };
+  }, [scrollRef, projectRefs]);
 
   return (
     <motion.div
@@ -117,16 +86,24 @@ function Portfolio() {
       initial={{ opacity: 0.5 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0.5 }}
-      ref={tmp}
+      ref={scrollRef}
     >
+      <motion.img
+        className={styles.background_chain}
+        src={chainImg}
+        alt="background_chain"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.2 }}
+        exit={{ opacity: 0 }}
+      />
       <Nav />
 
       {projects.map((project, i) => {
         return (
           <div
-            className={styles.projects_wheel}
-            key={`wheel${i}`}
-            ref={refs[i]}
+            className={styles.project_container}
+            key={`project${i}`}
+            ref={projectRefs[i]}
           >
             <MyProject
               key={i}
