@@ -59,7 +59,7 @@ function Portfolio() {
       e.preventDefault();
       const { deltaY } = e; // 스크롤 방향 확인
       const { scrollTop } = scrollRef.current; // 스크롤 위쪽 끝
-      const pageHeight = window.innerHeight; // 화면 세로 길이
+      const pageHeight = window.innerHeight * 0.9; // 화면 세로 길이
       console.log(scrollTop, pageHeight);
       // 아래로 스크롤
       if (deltaY > 0) {
