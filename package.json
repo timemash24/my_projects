@@ -46,5 +46,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://timemash24.github.io/my_projects/"
+  "homepage": "https://timemash24.github.io/my_projects/",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }

@@ -60,24 +60,24 @@ function Portfolio() {
       const { deltaY } = e; // 스크롤 방향 확인
       const { scrollTop } = scrollRef.current; // 스크롤 위쪽 끝
       const pageHeight = window.innerHeight; // 화면 세로 길이
-
+      console.log(scrollTop, pageHeight);
       // 아래로 스크롤
       if (deltaY > 0) {
-        if (scrollTop >= 0 && scrollTop < pageHeight) {
-          projectRefs[1].current?.scrollIntoView();
+        if (scrollTop < pageHeight) {
+          projectRefs[1].current?.scrollIntoView({ block: 'center' });
           setCurIndex(1);
         } else {
-          projectRefs[2].current?.scrollIntoView();
+          projectRefs[2].current?.scrollIntoView({ block: 'center' });
           setCurIndex(2);
         }
       }
       // 위로 스크롤
       else {
         if (scrollTop < pageHeight * 2) {
-          projectRefs[0].current?.scrollIntoView();
+          projectRefs[0].current?.scrollIntoView({ block: 'center' });
           setCurIndex(0);
         } else {
-          projectRefs[1].current?.scrollIntoView();
+          projectRefs[1].current?.scrollIntoView({ block: 'center' });
           setCurIndex(1);
         }
       }
