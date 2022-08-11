@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 import MyProject from '../components/MyProject';
 import Nav from '../components/Nav';
 import styles from '../css/Portfolio.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClover } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 const chainImg = require('../img/img_chain3.png');
 
 function Portfolio() {
@@ -42,10 +41,21 @@ function Portfolio() {
   );
   const [curIndex, setCurIndex] = useState(0);
 
-  useEffect(() => {
-    // if (!scrollRef.current || !projectRefs) return;
+  // 버튼 이벤트
+  const onClick = (e) => {
+    setCurIndex(parseInt(e.target.id));
+  };
 
-    const onWheel = async (e) => {
+  useEffect(() => {
+    projectRefs[curIndex].current?.scrollIntoView();
+
+    // 창크기 변경시 재배치
+    const onResize = () => {
+      projectRefs[curIndex].current?.scrollIntoView();
+    };
+
+    // 스크롤 이벤트
+    const onWheel = (e) => {
       e.preventDefault();
       const { deltaY } = e; // 스크롤 방향 확인
       const { scrollTop } = scrollRef.current; // 스크롤 위쪽 끝
@@ -73,8 +83,10 @@ function Portfolio() {
       }
     };
 
+    window.addEventListener('resize', onResize);
     scrollRef.current?.addEventListener('wheel', onWheel);
     return () => {
+      window.removeEventListener('resize', onResize);
       scrollRef.current?.removeEventListener('wheel', onWheel);
     };
   }, [scrollRef, projectRefs]);
@@ -123,13 +135,11 @@ function Portfolio() {
           return (
             <span
               className={
-                i === curIndex
-                  ? `${styles.current_index}`
-                  : `${styles.other_index}`
+                i === curIndex ? styles.current_index : styles.other_index
               }
               key={`pIndex${i}`}
             >
-              <FontAwesomeIcon icon={faClover} />
+              <i id={i} className="fa-solid fa-clover" onClick={onClick}></i>
             </span>
           );
         })}

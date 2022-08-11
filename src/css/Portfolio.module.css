@@ -33,7 +33,7 @@
 }
 .projects_index span {
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .current_index {
@@ -83,7 +83,7 @@
 }
 
 .project_info {
-  padding: 3em 1.2em 0;
+  padding: 2.5em 1.2em 0;
   /* background-color: var(--beige-color); */
   height: 100%;
 }

@@ -30,7 +30,7 @@ function MyProject({ img, link, title, github, tags, desc }) {
       whileInView="enter"
       viewport={{ amount: 0.8 }}
     >
-      <a href={link}>
+      <a href={link} target="_blank">
         <img src={img} alt={title} />
       </a>
       <div className={styles.project_info}>
