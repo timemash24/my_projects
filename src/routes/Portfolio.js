@@ -10,6 +10,14 @@ function Portfolio() {
   const root = 'https://timemash24.github.io/';
   const projects = [
     {
+      img: require('../img/img_bookmark.png'),
+      link: `${root}bookmark_app_react/`,
+      title: 'Bookmark App',
+      github: 'https://github.com/timemash24/bookmark_app_react',
+      tags: ['react', 'redux', 'javascript', 'html', 'css'],
+      desc: 'Organize bookmarks by tags',
+    },
+    {
       img: require('../img/img_momentum.jpg'),
       link: `${root}momentumJS/`,
       title: 'Personal Dashboard App',
@@ -18,20 +26,20 @@ function Portfolio() {
       desc: 'Featuring inspiring photo, quote, weather and to-do list',
     },
     {
-      img: require('../img/img_paint.png'),
-      link: `${root}paintJS/`,
-      title: 'Paint App',
-      github: 'https://github.com/timemash24/paintJS',
-      tags: ['javascript', 'html', 'css'],
-      desc: 'Draw, paint, save',
-    },
-    {
       img: require('../img/img_movie.png'),
       link: `${root}movie_app_react/`,
       title: 'Movie App',
       github: 'https://github.com/timemash24/movie_app_react',
       tags: ['react', 'javascript', 'html', 'css'],
       desc: 'Introduce movies and sort by genres',
+    },
+    {
+      img: require('../img/img_paint.png'),
+      link: `${root}paintJS/`,
+      title: 'Paint App',
+      github: 'https://github.com/timemash24/paintJS',
+      tags: ['javascript', 'html', 'css'],
+      desc: 'Draw, paint, save',
     },
   ];
 
@@ -60,15 +68,18 @@ function Portfolio() {
       const { deltaY } = e; // 스크롤 방향 확인
       const { scrollTop } = scrollRef.current; // 스크롤 위쪽 끝
       const pageHeight = window.innerHeight * 0.9; // 화면 세로 길이
-      console.log(scrollTop, pageHeight);
+      // console.log(scrollTop, pageHeight);
       // 아래로 스크롤
       if (deltaY > 0) {
         if (scrollTop < pageHeight) {
           projectRefs[1].current?.scrollIntoView({ block: 'center' });
           setCurIndex(1);
-        } else {
+        } else if (scrollTop < pageHeight * 2) {
           projectRefs[2].current?.scrollIntoView({ block: 'center' });
           setCurIndex(2);
+        } else {
+          projectRefs[3].current?.scrollIntoView({ block: 'center' });
+          setCurIndex(3);
         }
       }
       // 위로 스크롤
@@ -76,9 +87,12 @@ function Portfolio() {
         if (scrollTop < pageHeight * 2) {
           projectRefs[0].current?.scrollIntoView({ block: 'center' });
           setCurIndex(0);
-        } else {
+        } else if (scrollTop < pageHeight * 3) {
           projectRefs[1].current?.scrollIntoView({ block: 'center' });
           setCurIndex(1);
+        } else {
+          projectRefs[2].current?.scrollIntoView({ block: 'center' });
+          setCurIndex(2);
         }
       }
     };

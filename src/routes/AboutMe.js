@@ -71,7 +71,7 @@ function AboutMe() {
         whileHover={{ y: '-10%' }}
       />
       <h1 key="about_title" className={styles.about_title}>
-        TIMEMASH
+        SEOYEON KIM
       </h1>
       <motion.ul
         key="about_info"
@@ -85,9 +85,9 @@ function AboutMe() {
           <p>SKILLS</p>
           <div className={styles.about_skills}>
             <span># JAVASCRIPT</span>
+            <span># REACT</span>
             <span># HTML</span>
             <span># CSS</span>
-            <span># REACT</span>
           </div>
         </li>
         <li>
